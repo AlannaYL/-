@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const gua = (array) => {
+            // 文字也可以等於數字
+            // gua = ['乾', '兌', '離', '震', '巽', '坎', '艮', '坤']
+            // 因為數字%8 == 0 時，掛會直接＝8，所以直接把坤卦一第一個，這樣 value = 0
+            gua = ['坤', '乾', '兌', '離', '震', '巽', '坎', '艮']
+            const down = gua[array[0] % 8]
+            const up = gua[array[1] % 8]
+            const yao = array[2] % 6 || 6 //當餘數是0時，預設6
+            return [down, up, yao]
+        }
+
+        const number1 = parseInt(prompt('第一個數字'))
+        const number2 = parseInt(prompt('第二個數字'))
+        const number3 = parseInt(prompt('第三個數字'))
+        const numbers = [number1, number2, number3]
+        const result = gua(numbers)
+        console.log(result[0]) // 輸出 離
+        console.log(result[1]) // 輸出 震
+        console.log(result[2]) // 輸出 2
+
+    </script>
+</body>
+
+</html>
